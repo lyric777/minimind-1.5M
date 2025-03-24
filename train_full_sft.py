@@ -96,10 +96,10 @@ def train_epoch(epoch, wandb):
 
 
 def init_model(lm_config):
-    tokenizer = AutoTokenizer.from_pretrained('./model/minimind_tokenizer')
+    tokenizer = AutoTokenizer.from_pretrained('/content/drive/MyDrive/minimind/model/minimind_tokenizer')
     model = MiniMindLM(lm_config)
     moe_path = '_moe' if lm_config.use_moe else ''
-    ckp = f'./out/pretrain_{lm_config.dim}{moe_path}.pth'
+    ckp = f'/content/drive/MyDrive/minimind/out/pretrain_{lm_config.dim}{moe_path}.pth'
     state_dict = torch.load(ckp, map_location=args.device)
     model.load_state_dict(state_dict, strict=False)
     Logger(f'LLM总参数量：{sum(p.numel() for p in model.parameters() if p.requires_grad) / 1e6:.3f} 百万')
@@ -121,7 +121,7 @@ def init_distributed_mode():
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="MiniMind Full SFT")
-    parser.add_argument("--out_dir", type=str, default="out")
+    parser.add_argument("--out_dir", type=str, default="/content/drive/MyDrive/minimind/out")
     parser.add_argument("--epochs", type=int, default=1)
     parser.add_argument("--batch_size", type=int, default=32)
     parser.add_argument("--learning_rate", type=float, default=5e-5)
@@ -137,11 +137,11 @@ if __name__ == "__main__":
     parser.add_argument("--log_interval", type=int, default=100)
     parser.add_argument("--save_interval", type=int, default=100)
     parser.add_argument('--local_rank', type=int, default=-1)
-    parser.add_argument('--dim', default=512, type=int)
-    parser.add_argument('--n_layers', default=8, type=int)
+    parser.add_argument('--dim', default=128, type=int)
+    parser.add_argument('--n_layers', default=4, type=int)
     parser.add_argument('--max_seq_len', default=512, type=int)
     parser.add_argument('--use_moe', default=False, type=bool)
-    parser.add_argument("--data_path", type=str, default="./dataset/sft_mini_512.jsonl")
+    parser.add_argument("--data_path", type=str, default="/content/drive/MyDrive/minimind/dataset/sft_mini_512.jsonl")
 
     args = parser.parse_args()
 
