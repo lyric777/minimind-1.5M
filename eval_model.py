@@ -112,8 +112,8 @@ def main():
     # MiniMind2-moe (145M)：(dim=640, n_layers=8, use_moe=True)
     # MiniMind2-Small (26M)：(dim=512, n_layers=8)
     # MiniMind2 (104M)：(dim=768, n_layers=16)
-    parser.add_argument('--dim', default=512, type=int)
-    parser.add_argument('--n_layers', default=8, type=int)
+    parser.add_argument('--dim', default=128, type=int)
+    parser.add_argument('--n_layers', default=4, type=int)
     parser.add_argument('--max_seq_len', default=8192, type=int)
     parser.add_argument('--use_moe', default=False, type=bool)
     # 携带历史对话上下文条数
