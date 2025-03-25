@@ -13,6 +13,7 @@ parser.add_argument('--n_layers', default=4, type=int)
 
 为什么改这两个不改其他，参考了该issue https://github.com/jingyaogong/minimind/issues/35
 ##### 用原模型（最小版）参数训练，预训练就预计花费两个半小时，而colab T4 GPU的限制大概是1个小时40分钟（在当时的用量水平下），我已经踩过坑了，不用再尝试了
+同时，如果在colab上执行，需要注意路径问题，我在代码里都使用了挂载Google drive后的绝对路径
 
 #### 3. 数据集Google drive分享
 pretrain_hq.jsonl：
