@@ -45,3 +45,4 @@ MiniMind模型参数量: 1.57M(illion)
 👶: 我咳嗽已经持续了两周，需要去医院检查吗？
 🤖️: 我想到了最高的桌面，请问你在哪个地方做哪个地方？
 ```
+受到了一些网友喜爱，发布到了hugging face space里，https://lyric777-whosay8dao.hf.space/
